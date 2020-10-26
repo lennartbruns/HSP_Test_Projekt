@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Anja\\.nuget\\packages\\": {}
+    "C:\\Users\\Lennart\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anja\\Documents\\LENNART\\HSP\\HSP_Test_Projekt\\Test_Projekt\\Test_Projekt\\Test_Projekt.csproj",
+      "projectUniqueName": "C:\\Users\\Lennart\\Documents\\GitHub\\HSP_Test_Projekt\\Test_Projekt\\Test_Projekt\\Test_Projekt.csproj",
       "projectName": "Test_Projekt",
-      "projectPath": "C:\\Users\\Anja\\Documents\\LENNART\\HSP\\HSP_Test_Projekt\\Test_Projekt\\Test_Projekt\\Test_Projekt.csproj",
-      "packagesPath": "C:\\Users\\Anja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Anja\\Documents\\LENNART\\HSP\\HSP_Test_Projekt\\Test_Projekt\\Test_Projekt\\obj\\",
+      "projectPath": "C:\\Users\\Lennart\\Documents\\GitHub\\HSP_Test_Projekt\\Test_Projekt\\Test_Projekt\\Test_Projekt.csproj",
+      "packagesPath": "C:\\Users\\Lennart\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lennart\\Documents\\GitHub\\HSP_Test_Projekt\\Test_Projekt\\Test_Projekt\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Anja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lennart\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
