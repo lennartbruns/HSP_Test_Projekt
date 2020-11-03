@@ -17,85 +17,84 @@ namespace Test_Projekt
             Double hf;      //hf = Zahnfußhöhe
             Double c;       //c = Kopfspiel
             Double a;       //a = Achsenabstand
-            Double alpha;   //Nachnorm 20 
+            Double alpha;   //Nachnorm 20°
             Double dg;      //dg = Grundkreisdurchmesser
+            Double Br;      //Br = Breite des Zahnrades
 
-            alpha = 20; //Zum testen
-            c = 0.167; //vorgabe
 
-            int Eingabe = 0; //Eingabe als Int deklarieren
+            string eingabe; //Eingabe als string deklarieren
+            int eingabeInt = 0;     //späterer Speicherort für die Eingabe als Int
 
             do
             {
-                Console.WriteLine("\n\t\t\tZahnradberechnungsprogramm von Gruppe H");
-                Console.WriteLine("\n\t\tWollen sie die Modul und Teilkreisdurchmesser vorgeben press 1");
-                Console.WriteLine("\n\t\tWollen sie die Modul und Zähnezahl vorgeben press 2");
-                Console.WriteLine("\n\t\tWollen sie die Zähnezahl und Teilkreisdurchmesser vorgeben press 3");
-                Console.WriteLine("\n\t\t\tund bestätigen sie ihre Eingabe mit Enter");
+                Console.WriteLine("\n\t\t\tZahnradkonfigurator von Gruppe H");
+                Console.WriteLine("\n\t\tWollen sie das Modul und den Teilkreisdurchmesser vorgeben? press: 1");
+                Console.WriteLine("\n\t\tWollen sie das Modul und die Zähnezahl vorgeben? press: 2");
+                Console.WriteLine("\n\t\tWollen sie die Zähnezahl und den Teilkreisdurchmesser vorgeben? press: 3");
+                Console.WriteLine("\n\t\t\tBestätigen sie ihre Eingabe mit Enter");
 
-                Eingabe = Convert.ToInt32(Console.ReadLine());    // Eingabe und convert
+                eingabe = Console.ReadLine();    // Eingabe und convert
+                Int32.TryParse(eingabe, out eingabeInt);
 
-                if (Eingabe >= 4 || Eingabe <= 0) //Fehlermeldung
+                if (eingabeInt >= 4 || eingabeInt <= 0) //Fehlermeldung
                 {
                     Console.Clear();
-                    Console.WriteLine("\n\t\t\t\tFehler! Falsche Eingabe!\n\t\t\t\t Eingabe Wiederholen!\n");
-
+                    Console.WriteLine("\n\t\t\t\tFehler! Falsche Eingabe!\n\t\t\t\tEingabe Wiederholen!\n");
                 }
-
-
             }
+            while (eingabeInt >= 4 || eingabeInt <= 0); //Wenn Eingabe Falsch: Neustart
 
-            while (Eingabe >= 4 || Eingabe <= 0); //Wenn Eingabe Falsch: Neustart
-
-
-            if (Eingabe == 1)
+            if (eingabeInt == 1)
             {
-                Console.WriteLine("Bitte geben sie das Modul ein.");
-                m = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Bitte geben sie den Teilkreisdurchmesser in mm an");
-                d = Convert.ToDouble(Console.ReadLine());
+                modul();
+                teilkreisdurchmesser();
                 z = d / m;
 
+                Winkel();
+                Kopfspiel();
                 berechnung();
                 ausgabe();
-
             }
-            else if (Eingabe == 2)
+            else if (eingabeInt == 2)
             {
-                Console.WriteLine("Bitte geben sie das Modul ein.");
-                m = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Bitte geben sie die Zähnezahl an:");
-                z = Convert.ToDouble(Console.ReadLine());
+                modul();
+                zaehnezahl();
                 d = m * z;
 
+                Winkel();
+                Kopfspiel();
                 berechnung();
                 ausgabe();
-
             }
-            else if (Eingabe == 3)
+            else if (eingabeInt == 3)
             {
-                Console.WriteLine("Bitte geben sie das Teilkreisdurchmesser in mm ein.");
-                d = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Bitte geben sie die Zähnezahl an:");
-                z = Convert.ToDouble(Console.ReadLine());
+                teilkreisdurchmesser();
+                zaehnezahl();
                 m = d / z;
 
+                Winkel();
+                Kopfspiel();
                 berechnung();
                 ausgabe();
-
             }
+            //Eingabe der Breite des Zahnrades
+            Console.Write("\t\t\tGeben Sie die Breite des Zahnrades an:");
+            Br = Convert.ToDouble(Console.ReadLine());
+
+            //Eingabe Material
+            Console.Write("\t\t\tBitte geben Sie das Material ein:");
+            string Material = Console.ReadLine();
 
             //Unterprogramme
             void ausgabe()
             {
-                Console.WriteLine(Eingabe);
-                Console.WriteLine("Zähnezahl: " + z);
-                Console.WriteLine("Teilkreisdurchmesser: " + d);
-                Console.WriteLine("Modul: " + m);
-                Console.WriteLine("Teilung: " + p);
-                Console.WriteLine("Fußkreisdurchmesser: " + df);
-                Console.WriteLine("Zahnhöhe: " + h);
-                Console.WriteLine("Grundkreisdurchmesser: " + dg);
+                Console.WriteLine("\t\t\tZähnezahl: " + z);
+                Console.WriteLine("\t\t\tTeilkreisdurchmesser: " + d);
+                Console.WriteLine("\t\t\tModul: " + m);
+                Console.WriteLine("\t\t\tTeilung: " + p);
+                Console.WriteLine("\t\t\tFußkreisdurchmesser: " + df);
+                Console.WriteLine("\t\t\tZahnhöhe: " + h);
+                Console.WriteLine("\t\t\tGrundkreisdurchmesser: " + dg);
             }
 
             void berechnung()
@@ -103,15 +102,148 @@ namespace Test_Projekt
                 //Zahnhöhe
                 h = 2 * m + c;
                 //Teilung
-                //Pi genauer eingeben?
                 p = Math.PI * m;
                 //Fußkreisdurchmesser
                 df = d - (2 * (m + c));
                 //Grundkreisdurchmesser
-                alpha = Math.PI / 180 * alpha;
+                alpha = Math.PI / 180 * alpha; // Winkel in Radiant umrechnen
                 dg = d * Math.Cos(alpha);
             }
             Console.ReadKey();
+
+
+            void Kopfspiel()
+            {
+
+                string gg; //Eingabe als string deklarieren
+                int ggInt = 0;     //späterer Speicherort für die Eingabe als Int
+
+                do
+                {
+                    Console.WriteLine("\n\t\tWollen Sie das Kopfspiel selbstbesimmen? press: 1");
+                    Console.WriteLine("\n\t\tOder wollen sie, dass für das Kopfspiel der Normwert = 0,167mm angenommen wird? press: 2");
+
+                    Console.WriteLine("\n\t\t\tBestätigen sie ihre Eingabe mit Enter");
+
+                    gg = Console.ReadLine();    // Eingabe und convert
+                    Int32.TryParse(gg, out ggInt);
+
+                    if (ggInt >= 3 || ggInt <= 0) //Fehlermeldung
+                    {
+                        Console.WriteLine("\n\t\t\t\tFehler! Falsche Eingabe!\n\t\t\t\tEingabe Wiederholen!\n");
+                    }
+                }
+                while (ggInt >= 3 || ggInt <= 0); //Wenn Eingabe Falsch: Neustart
+
+                if (ggInt == 1)
+                {
+                    do
+                    {
+                        Console.WriteLine("\n\t\t\tBitte geben sie das Kopfspiel in mm ein. Empfohlen ist 0,1 bis 0,3mm");
+                        Double.TryParse(Console.ReadLine(), out c);
+                        if (c <= 0)
+                        {
+                            Console.WriteLine("Eingabe Wiederholen!");
+                        }
+
+                    } while (c <= 0);
+                }
+                else
+                {
+                    c = 0.167;
+                }
+
+
+            }
+
+            void Winkel()
+            {
+                string ww; //Eingabe als string deklarieren
+                int wwInt = 0;     //späterer Speicherort für die Eingabe als Int
+
+                do
+                {
+                    Console.WriteLine("\n\t\tWollen Sie den Zahnflankenwinkel selbst bestimmen? press: 1");
+                    Console.WriteLine("\n\t\tOder wollen sie, dass für den Zahnflankenwinkel 20° angenommen wird? press: 2");
+
+                    Console.WriteLine("\n\t\t\tBestätigen sie ihre Eingabe mit Enter");
+
+                    ww = Console.ReadLine();     // Eingabe und convert
+                    Int32.TryParse(ww, out wwInt);
+
+                    if (wwInt >= 3 || wwInt <= 0) //Fehlermeldung
+                    {
+                        Console.WriteLine("\n\t\t\t\tFehler! Falsche Eingabe!\n\t\t\t\tEingabe Wiederholen!\n");
+                    }
+                }
+                while (wwInt >= 3 || wwInt <= 0); //Wenn Eingabe Falsch: Neustart
+
+                if (wwInt == 1)
+                {
+                    do
+                    {
+                        Console.WriteLine("\n\t\t\tBitte geben sie den Zahnflanken Winkel in Grad an. Norm ist 20°");
+                        Double.TryParse(Console.ReadLine(), out alpha);
+                        if (alpha <= 0)
+                        {
+                            Console.WriteLine("Eingabe Wiederholen!");
+                        }
+
+                    } while (alpha <= 0);
+                }
+                else
+                {
+                    alpha = 20;
+                }
+
+
+            }
+
+            //Unterprogramm zur Kontrolle der Moduleingabe
+            void modul()
+            {
+                do
+                {
+                    Console.WriteLine("\n\t\t\tBitte geben sie das Modul ein.");
+                    Double.TryParse(Console.ReadLine(), out m);
+                    if (m <= 0)
+                    {
+                        Console.WriteLine("Eingabe Wiederholen!");
+                    }
+
+                } while (m <= 0);
+            }
+
+            //Unterprogramm zur Kontrolle der Zähnezahleingabe
+            void zaehnezahl()
+            {
+                do
+                {
+                    Console.WriteLine("\n\t\t\tBitte geben sie die Zähnezahl an:");
+                    Double.TryParse(Console.ReadLine(), out z);
+                    if (z <= 0)
+                    {
+                        Console.WriteLine("Eingabe Wiederholen!");
+                    }
+
+                } while (z <= 0);
+            }
+
+            //Unterprogramm zur Kontrolle der Teilkreisdurchmessereingabe
+            void teilkreisdurchmesser()
+            {
+                do
+                {
+                    Console.WriteLine("\n\t\t\tBitte geben sie den Teilkreisdurchmesser in mm ein.");
+                    Double.TryParse(Console.ReadLine(), out d);
+                    if (d <= 0)
+                    {
+                        Console.WriteLine("Eingabe Wiederholen!");
+                    }
+
+                } while (d <= 0);
+            }
+
         }
     }
 }
