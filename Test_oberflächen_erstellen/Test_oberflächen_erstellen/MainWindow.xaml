@@ -5,25 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Test_oberflächen_erstellen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="504.436" Width="914.315">
+        Title="MainWindow" Height="600" Width="800">
 
-    <Grid Margin="200,20,20,20">
+    <Grid Margin="100,100,20,20">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+
 
         </Grid.ColumnDefinitions>
-        <Label>Wählen sie den die Zahnradparameter aus:</Label>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="617" Height="Auto" Margin="0,0,-45,112" Grid.RowSpan="2">
 
-
+            <RadioButton Margin="20,0,0,0" TextBlock.FontSize="auto" Content="Modul und Teilkreisdurchmesser" Width="Auto"/>
+            <RadioButton Margin="20,0,0,0" TextBlock.FontSize="Auto" Content="Modul und Zähnezahl"/>
+            <RadioButton Margin="20,0,0,0" TextBlock.FontSize="Auto" Content="Zähnezahl und Teilkreisdurchmesser" Width="Auto"/>
+        </StackPanel>
 
     </Grid>
+
+
+
 </Window>
