@@ -25,10 +25,32 @@ namespace Test_oberflächen_erstellen
             InitializeComponent();
         }
 
+        private void btnWeiter_Click(object sender, RoutedEventArgs e)
+        {
+            int newTab = Tab.SelectedIndex + 1;
+
+            if (newTab >= Tab.Items.Count)
+                newTab = 0;
+            Tab.SelectedIndex = newTab;
+        }
+        private void btnZurueck_Click(object sender, RoutedEventArgs e)
+        {
+            int newTab = Tab.SelectedIndex - 1;
+
+            if (newTab < 0)
+                newTab = Tab.Items.Count - 1;
+            Tab.SelectedIndex = newTab;
+        }
         private void rb_m_t_Checked(object sender, RoutedEventArgs e)
         {
             txtBox_Modul_1.IsEnabled = true;
             txtBox_Teilkreis_1.IsEnabled = true;
+
+            txtBox_Modul_2.Clear();
+            txtBox_Zähnezahl_1.Clear();
+            txtBox_Teilkreis_2.Clear();
+            txtBox_Zähnezahl_2.Clear();
+
         }
 
         private void rb_m_t_Unchecked(object sender, RoutedEventArgs e)
@@ -41,6 +63,11 @@ namespace Test_oberflächen_erstellen
         {
             txtBox_Modul_2.IsEnabled = true;
             txtBox_Zähnezahl_1.IsEnabled = true;
+
+            txtBox_Modul_1.Clear();
+            txtBox_Teilkreis_1.Clear();
+            txtBox_Teilkreis_2.Clear();
+            txtBox_Zähnezahl_2.Clear();
         }
 
         private void rb_m_z_Unchecked(object sender, RoutedEventArgs e)
@@ -51,8 +78,13 @@ namespace Test_oberflächen_erstellen
 
         private void rb_t_z_Checked(object sender, RoutedEventArgs e)
         {
-            txtBox_Teilkreis_2.IsEnabled = false;
-            txtBox_Zähnezahl_2.IsEnabled = false;
+            txtBox_Teilkreis_2.IsEnabled = true;
+            txtBox_Zähnezahl_2.IsEnabled = true;
+
+            txtBox_Modul_1.Clear();
+            txtBox_Teilkreis_1.Clear();
+            txtBox_Modul_2.Clear();
+            txtBox_Zähnezahl_1.Clear();
         }
 
         private void rb_t_z_Unchecked(object sender, RoutedEventArgs e)
@@ -67,11 +99,11 @@ namespace Test_oberflächen_erstellen
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-             
+
+
             if (rb_m_t.IsChecked == true)
             {
-                Double.TryParse(txtBox_Modul_1.Text,out m);
+                Double.TryParse(txtBox_Modul_1.Text, out m);
                 Double.TryParse(txtBox_Teilkreis_1.Text, out d);
 
                 z = d / m;
@@ -79,10 +111,10 @@ namespace Test_oberflächen_erstellen
                 lbl_Modul.Content = "Modul:" + m;
                 lbl_Teilekreis.Content = "Teilkreis:" + d;
                 lbl_Zähnezahl.Content = "Zähnezahl:" + z;
-
+                ergebnis.Text = ("Ergebnis: \n" + "Modul: " + m + "\nTeilkreis: " + d + "\nZähnezahl: " + z);
             }
 
-            if (rb_m_z.IsChecked == true) 
+            if (rb_m_z.IsChecked == true)
             {
                 Double.TryParse(txtBox_Modul_2.Text, out m);
                 Double.TryParse(txtBox_Zähnezahl_1.Text, out z);
@@ -92,18 +124,20 @@ namespace Test_oberflächen_erstellen
                 lbl_Modul.Content = "Modul:" + m;
                 lbl_Teilekreis.Content = "Teilkreis:" + d;
                 lbl_Zähnezahl.Content = "Zähnezahl:" + z;
+                ergebnis.Text = ("Ergebnis: \n" + "Modul: " + m + "\nTeilkreis: " + d + "\nZähnezahl: " + z);
             }
 
-            if (rb_t_z.IsChecked == true) 
+            if (rb_t_z.IsChecked == true)
             {
                 Double.TryParse(txtBox_Teilkreis_2.Text, out d);
                 Double.TryParse(txtBox_Zähnezahl_2.Text, out z);
 
-                m = d / z ;
+                m = d / z;
 
                 lbl_Modul.Content = "Modul:" + m;
                 lbl_Teilekreis.Content = "Teilkreis:" + d;
                 lbl_Zähnezahl.Content = "Zähnezahl:" + z;
+                ergebnis.Text = ("Ergebnis: \n" + "Modul: " + m + "\nTeilkreis: " + d + "\nZähnezahl: " + z);
             }
         }
 
