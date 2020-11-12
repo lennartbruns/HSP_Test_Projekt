@@ -65,7 +65,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 105 "..\..\MainWindow.xaml"
+        #line 106 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.RadioButton rb_m_t;
         
@@ -73,7 +73,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 108 "..\..\MainWindow.xaml"
+        #line 109 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtBox_Modul_1;
         
@@ -81,7 +81,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 110 "..\..\MainWindow.xaml"
+        #line 111 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtBox_Teilkreis_1;
         
@@ -89,7 +89,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 112 "..\..\MainWindow.xaml"
+        #line 113 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.RadioButton rb_m_z;
         
@@ -97,7 +97,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 115 "..\..\MainWindow.xaml"
+        #line 116 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtBox_Modul_2;
         
@@ -105,7 +105,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 117 "..\..\MainWindow.xaml"
+        #line 118 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtBox_Zähnezahl_1;
         
@@ -113,7 +113,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 122 "..\..\MainWindow.xaml"
+        #line 123 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.RadioButton rb_t_z;
         
@@ -121,7 +121,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 125 "..\..\MainWindow.xaml"
+        #line 126 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtBox_Teilkreis_2;
         
@@ -129,7 +129,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 127 "..\..\MainWindow.xaml"
+        #line 128 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtBox_Zähnezahl_2;
         
@@ -137,7 +137,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 130 "..\..\MainWindow.xaml"
+        #line 131 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label lbl_Modul;
         
@@ -145,7 +145,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 131 "..\..\MainWindow.xaml"
+        #line 132 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label lbl_Teilekreis;
         
@@ -153,7 +153,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 132 "..\..\MainWindow.xaml"
+        #line 133 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label lbl_Zähnezahl;
         
@@ -161,7 +161,7 @@ namespace Test_oberflächen_erstellen {
         #line hidden
         
         
-        #line 141 "..\..\MainWindow.xaml"
+        #line 145 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock ergebnis;
         
@@ -222,13 +222,13 @@ namespace Test_oberflächen_erstellen {
             case 4:
             this.rb_m_t = ((System.Windows.Controls.RadioButton)(target));
             
-            #line 105 "..\..\MainWindow.xaml"
+            #line 106 "..\..\MainWindow.xaml"
             this.rb_m_t.Checked += new System.Windows.RoutedEventHandler(this.rb_m_t_Checked);
             
             #line default
             #line hidden
             
-            #line 105 "..\..\MainWindow.xaml"
+            #line 106 "..\..\MainWindow.xaml"
             this.rb_m_t.Unchecked += new System.Windows.RoutedEventHandler(this.rb_m_t_Unchecked);
             
             #line default
@@ -243,13 +243,13 @@ namespace Test_oberflächen_erstellen {
             case 7:
             this.rb_m_z = ((System.Windows.Controls.RadioButton)(target));
             
-            #line 112 "..\..\MainWindow.xaml"
+            #line 113 "..\..\MainWindow.xaml"
             this.rb_m_z.Checked += new System.Windows.RoutedEventHandler(this.rb_m_z_Checked);
             
             #line default
             #line hidden
             
-            #line 112 "..\..\MainWindow.xaml"
+            #line 113 "..\..\MainWindow.xaml"
             this.rb_m_z.Unchecked += new System.Windows.RoutedEventHandler(this.rb_m_z_Unchecked);
             
             #line default
@@ -264,13 +264,13 @@ namespace Test_oberflächen_erstellen {
             case 10:
             this.rb_t_z = ((System.Windows.Controls.RadioButton)(target));
             
-            #line 122 "..\..\MainWindow.xaml"
+            #line 123 "..\..\MainWindow.xaml"
             this.rb_t_z.Checked += new System.Windows.RoutedEventHandler(this.rb_t_z_Checked);
             
             #line default
             #line hidden
             
-            #line 122 "..\..\MainWindow.xaml"
+            #line 123 "..\..\MainWindow.xaml"
             this.rb_t_z.Unchecked += new System.Windows.RoutedEventHandler(this.rb_t_z_Unchecked);
             
             #line default
@@ -293,7 +293,7 @@ namespace Test_oberflächen_erstellen {
             return;
             case 16:
             
-            #line 133 "..\..\MainWindow.xaml"
+            #line 134 "..\..\MainWindow.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
             
             #line default
