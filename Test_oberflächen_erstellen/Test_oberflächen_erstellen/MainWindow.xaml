@@ -6,20 +6,78 @@
         xmlns:local="clr-namespace:Test_oberflächen_erstellen"
         mc:Ignorable="d"
         Title="" Height="600" Width="800">
-    <DockPanel>
+    <DockPanel >
+
+
+
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="2,5">
             <Button Name="btnPreviousTab" Margin="2" Click="btnZurueck_Click">Zurück</Button>
             <Button Name="btnWeiter" Margin="2" Click="btnWeiter_Click">Weiter</Button>
         </StackPanel>
-        <TabControl Name="Tab" TabStripPlacement="Left">
-            <TabItem Header="Zahnradtyp">
-                <Label Content="Zahnradtyp"/>
+
+        <Label Padding="15" HorizontalAlignment="Center" DockPanel.Dock="Top" TextBlock.FontSize="30">Berechnungsprogramm für Zahnräder Gruppe H</Label>
+
+        <TabControl Name="Tab" TabStripPlacement="Left" Width="797">
+            <TabItem Height="Auto" Header="Zahnradtyp" TextBlock.FontSize="18">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label Padding="20" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" TextBlock.FontSize="25">Bitte wählen Sie einen Zahnrad Typ aus:</Label>
+
+                    <Label VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+                        <RadioButton TextBlock.FontSize="16" >Stirnrad</RadioButton>
+                    </Label>
+                    <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+                        <Image Source="Beispielbild Zahnrad.jpg" Height="135" ></Image>
+                    </Label>
+
+
+                    <Label VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                        <RadioButton TextBlock.FontSize="16" >Innenverzahnung</RadioButton>
+                    </Label>
+                    <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
+                        <Image  Source="Innenverzahnung.jpg" Height="135"  ></Image>
+                    </Label>
+
+
+                    <Label VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
+                        <RadioButton TextBlock.FontSize="16" >Kegelrad</RadioButton>
+                    </Label>
+                    <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center">
+                        <Image  Source="Kegelrad.png" Height="135"  ></Image>
+                    </Label>
+
+                    <Label VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
+                        <RadioButton TextBlock.FontSize="16" >Schneckentrieb</RadioButton>
+                    </Label>
+                    <Label Padding="0,0,0,20" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
+                        <Image  Source="Schneckengetriebe.png" Height="135"  ></Image>
+                    </Label>
+
+
+                </Grid>
+
             </TabItem>
-            <TabItem Header="Berechnung">
+            <TabItem Height="Auto" Header="Berechnung" TextBlock.FontSize="18">
                 <Label>
-                    <Grid>
+                    <Grid Width="670">
+
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
@@ -40,7 +98,7 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <Label Padding="20" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" TextBlock.FontSize="25">Berechnungsprogramm für Zahnräder Gruppe H</Label>
+
                         <Label Margin="20,0,0,0" HorizontalContentAlignment="Left" Grid.Row="1" Grid.ColumnSpan="2" TextBlock.FontSize="16">Bitte wählen Sie die Eingabemöglichkeit aus:</Label>
 
 
@@ -77,7 +135,7 @@
                 </Label>
             </TabItem>
 
-            <TabItem Header="Ergebnis">
+            <TabItem Height="Auto" Header="Ergebnis" TextBlock.FontSize="18" >
                 <Label>
                     <TextBlock Name="ergebnis" Text="Ergebnis:"/>
                 </Label>
