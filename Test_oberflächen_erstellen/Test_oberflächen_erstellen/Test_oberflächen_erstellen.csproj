@@ -98,13 +98,10 @@
     <Resource Include="Schneckengetriebe.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Kegelrad.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Innenverzahnung.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Beispielbild Zahnrad.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Kegelrad.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
