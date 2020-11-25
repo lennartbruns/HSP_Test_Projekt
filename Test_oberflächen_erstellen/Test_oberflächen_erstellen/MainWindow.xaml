@@ -1,31 +1,54 @@
-﻿<Window x:Class="Test_oberflächen_erstellen.MainWindow"
+﻿<Window x:Class="Sprint_2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Test_oberflächen_erstellen"
+        xmlns:local="clr-namespace:Sprint_2"
         mc:Ignorable="d"
-        Title="" Height="600" Width="800">
+        Title="Berechnungprogram für Zahnräder " Height="600" Width="800" Foreground="#FF0942EE">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFE8461D" Offset="0"/>
+            <GradientStop Color="#FF1207BA" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.OpacityMask>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF6A67D9" Offset="0.058"/>
+            <GradientStop Color="#FF1813F2" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.OpacityMask>
+    <Window.BorderBrush>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF240DD8" Offset="0.137"/>
+            <GradientStop Color="#FFE61919" Offset="1"/>
+            <GradientStop Color="#FFD01616" Offset="0.946"/>
+            <GradientStop Color="#FFD01616" Offset="0.946"/>
+            <GradientStop Color="#FFE61919" Offset="0.953"/>
+        </LinearGradientBrush>
+    </Window.BorderBrush>
     <DockPanel >
 
 
 
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="2,5">
-            <Button Name="btnPreviousTab" Margin="2" Click="btnZurueck_Click">Zurück</Button>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="2,5" Background="{x:Null}">
+            <Button Name="btnZurueck" IsEnabled ="True" Margin="2" Click="btnZurueck_Click">Zurück</Button>
             <Button Name="btnWeiter" Margin="2" Click="btnWeiter_Click">Weiter</Button>
         </StackPanel>
 
         <Label Padding="15" HorizontalAlignment="Center" DockPanel.Dock="Top" TextBlock.FontSize="30">Berechnungsprogramm für Zahnräder Gruppe H</Label>
 
-        <TabControl Name="Tab" TabStripPlacement="Left" Width="797">
-            <TabItem Height="Auto" Header="Zahnradtyp" TextBlock.FontSize="18">
+        <TabControl Name="Tab" TabStripPlacement="Left" Width="797" Background="{x:Null}">
+            <!--
+            Zahnradtypauswahl
+            -->
+            <TabItem Height="Auto" Header="Zahnradtyp" TextBlock.FontSize="18" Background="{x:Null}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="40"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
+
 
                     </Grid.RowDefinitions>
 
@@ -39,112 +62,265 @@
                     <Label Padding="20" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" TextBlock.FontSize="25">Bitte wählen Sie einen Zahnrad Typ aus:</Label>
 
                     <Label VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
-                        <RadioButton TextBlock.FontSize="16" >Stirnrad</RadioButton>
+                        <RadioButton Name="Stirnrad" IsChecked="True" GroupName="Zahnradtyp" TextBlock.FontSize="16" Checked="Stirnrad_Checked" >Stirnrad</RadioButton>
                     </Label>
                     <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
-                        <Image Source="Beispielbild Zahnrad.jpg" Height="135" ></Image>
+                        <Image Source="Beispielbild Zahnrad.jpg" Height="216" Width="282"></Image>
                     </Label>
 
 
                     <Label VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
-                        <RadioButton TextBlock.FontSize="16" >Innenverzahnung</RadioButton>
+                        <RadioButton Name="Kegelrad"  GroupName="Zahnradtyp" TextBlock.FontSize="16" Checked="Kegelrad_Checked" >Kegelrad</RadioButton>
                     </Label>
                     <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
-                        <Image  Source="Innenverzahnung.jpg" Height="135"  ></Image>
+                        <Image Source="Kegelrad.png" Height="220" Width="300" ></Image>
                     </Label>
 
 
-                    <Label VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
-                        <RadioButton TextBlock.FontSize="16" >Kegelrad</RadioButton>
-                    </Label>
-                    <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center">
-                        <Image  Source="Kegelrad.png" Height="135"  ></Image>
-                    </Label>
 
-                    <Label VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center">
-                        <RadioButton TextBlock.FontSize="16" >Schneckentrieb</RadioButton>
-                    </Label>
-                    <Label Padding="0,0,0,20" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
-                        <Image  Source="Schneckengetriebe.png" Height="135"  ></Image>
-                    </Label>
+
 
 
                 </Grid>
 
             </TabItem>
-            <TabItem Height="Auto" Header="Berechnung" TextBlock.FontSize="18">
-                <Label>
+            <!--
+            Berechnungsauswahl
+            -->
+            <TabItem Height="Auto" Header="Berechnung" TextBlock.FontSize="18" Background="{x:Null}">
+                <StackPanel>
+                    <!-- Auswahlgrid-->
                     <Grid>
-                        <Grid Width="670">
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="30"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="40"></RowDefinition>
-                                <RowDefinition Height="40"></RowDefinition>
-                                <RowDefinition Height="40"></RowDefinition>
-                                <RowDefinition></RowDefinition>
-
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-
-                            </Grid.ColumnDefinitions>
-
-
-                            <Label Margin="20,0,0,0" HorizontalContentAlignment="Left" Grid.Row="1" Grid.ColumnSpan="2" TextBlock.FontSize="16">Bitte wählen Sie die Eingabemöglichkeit aus:</Label>
-
-
-                            <RadioButton x:Name="rb_m_t" GroupName="Auswahl" Checked="rb_m_t_Checked" Unchecked="rb_m_t_Unchecked" 
-                        Margin="20,20,0,0" Grid.Row="2" TextBlock.FontSize="16">Modul und Teilkreis</RadioButton>
-                            <Label Margin="35,20,0,0" Grid.Row="3" TextBlock.FontSize="16">Modul:</Label>
-                            <TextBox IsEnabled="False" x:Name="txtBox_Modul_1" Margin="35,0,100,0" Grid.Row="4" Grid.Column="0" TextBlock.FontSize="16"></TextBox>
-                            <Label Margin="35,20,0,0" Grid.Row="5" TextBlock.FontSize="16">Teilkreis in mm:</Label>
-                            <TextBox IsEnabled="False" x:Name="txtBox_Teilkreis_1" Margin="35,0,100,0" Grid.Row="6" Grid.Column="0" TextBlock.FontSize="16"></TextBox>
-
-                            <RadioButton x:Name="rb_m_z" GroupName="Auswahl" Checked="rb_m_z_Checked" Unchecked="rb_m_z_Unchecked"
-                        Margin="20,20,0,0" Grid.Row="2" Grid.Column="1" TextBlock.FontSize="16">Modul und Zähnezahl</RadioButton>
-                            <Label Margin="35,20,0,0" Grid.Row="3" Grid.Column="1" TextBlock.FontSize="16">Modul:</Label>
-                            <TextBox IsEnabled="False" x:Name="txtBox_Modul_2" Margin="35,0,100,0" Grid.Row="4" Grid.Column="1" TextBlock.FontSize="16"></TextBox>
-                            <Label Margin="35,20,0,0" Grid.Row="5" Grid.Column="1" TextBlock.FontSize="16">Zähnezahl:</Label>
-                            <TextBox IsEnabled="False" x:Name="txtBox_Zähnezahl_1" Margin="35,0,100,0" Grid.Row="6" Grid.Column="1" TextBlock.FontSize="16"></TextBox>
-
-
-
-
-                            <RadioButton x:Name="rb_t_z" GroupName="Auswahl" Checked="rb_t_z_Checked" Unchecked="rb_t_z_Unchecked"
-                        Margin="20,20,0,0" Grid.Row="2" Grid.Column="2" TextBlock.FontSize="16">Teilkreis und Zähnezahl</RadioButton>
-                            <Label Margin="35,20,0,0" Grid.Row="3" Grid.Column="2" TextBlock.FontSize="16">Teilkreis in mm:</Label>
-                            <TextBox IsEnabled="False" x:Name="txtBox_Teilkreis_2" Margin="35,0,100,0" Grid.Row="4" Grid.Column="2" TextBlock.FontSize="16"></TextBox>
-                            <Label Margin="35,20,0,0" Grid.Row="5" Grid.Column="2" TextBlock.FontSize="16">Zähnezahl:</Label>
-                            <TextBox IsEnabled="False" x:Name="txtBox_Zähnezahl_2" Margin="35,0,100,0" Grid.Row="6" Grid.Column="2" TextBlock.FontSize="16"></TextBox>
-
-                            <Label Margin="20,30,0,0" Grid.Row="7" Grid.Column="0" TextBlock.FontSize="16" >Ergebnis:</Label>
-                            <Label x:Name="lbl_Modul" Margin="0,0,0,0" Grid.Row="8" TextBlock.FontSize="16" ></Label>
-                            <Label x:Name="lbl_Teilekreis" Grid.Row="9" TextBlock.FontSize="16" ></Label>
-                            <Label x:Name="lbl_Zähnezahl" Grid.Row="10" TextBlock.FontSize="16" ></Label>
-                            <Button Margin="10,0,10,0" Grid.Row="10" Grid.Column="2" Click="Button_Click" RenderTransformOrigin="0.5,0.5" TextBlock.FontSize="16" >Berechnen
-                            </Button>
-                        </Grid>
-
-
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="314.17"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Wählen sie die Berechnungsart aus:</Label>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <RadioButton Name="rb_berechnung1" GroupName="Berechnung" Checked="rb_berechnung1_Checked">Modul und Teilkreisdurchemsser</RadioButton>
+                        </Label>
+                        <Label Grid.Row="2" Grid.Column="0">
+                            <RadioButton Name="rb_berechnung2" GroupName="Berechnung" Checked="rb_berechnung2_Checked">Modul und Zähnezahl</RadioButton>
+                        </Label>
+                        <Label Grid.Row="3" Grid.Column="0">
+                            <RadioButton Name="rb_berechnung3" GroupName="Berechnung" Checked="rb_berechnung3_Checked">Teilkreisdurchmesser und Zähnezahl</RadioButton>
+                        </Label>
+                        <Label Grid.Row="1" Grid.Column="1">
+                            <CheckBox Name="cBox_Kopfspiel" Checked="cBox_Kopfspiel_Checked" Unchecked="cBox_Kopfspiel_Unchecked">Kopfspiel anpassen (Standard: 0,167mm)</CheckBox>
+                        </Label>
+                        <Label Grid.Row="2" Grid.Column="1">
+                            <CheckBox Name="cBox_Zahnflankenwinkel" Checked="cBox_Zahnflankenwinkel_Checked" Unchecked="cBox_Zahnflankenwinkel_Unchecked">Zahnflankenwinkel (Standard: 20°)</CheckBox>
+                        </Label>
+                        <Label Grid.Row="3" Grid.Column="1">
+                            <CheckBox Name="cBox_Verdrehen" Checked="cBox_Verdrehen_Checked" Unchecked="cBox_Verdrehen_Unchecked">Verdrehen</CheckBox>
+                        </Label>
                     </Grid>
-                </Label>
-            </TabItem>
+                    <!-- Eingabegrid-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="230"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
-            <TabItem Height="Auto" Header="Ergebnis" TextBlock.FontSize="18" >
-                <Label>
-                    <TextBlock Name="ergebnis" Text="Ergebnis:"/>
-                </Label>
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_EingabeName1"  Text="Eingabe 1"></TextBlock>
+                        </Label>
+                        <Label Grid.Row="0" Grid.Column="1">
+                            <TextBox Name="txtBox_Eingabe1"  Width="100" Text="" ></TextBox>
+                        </Label>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_EingabeName2"  Text="Eingabe 2" ></TextBlock>
+                        </Label>
+                        <Label Grid.Row="1" Grid.Column="1">
+                            <TextBox Name="txtBox_Eingabe2"  Width="100" Text=""></TextBox>
+                        </Label>
+                        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_Dicke" Text="Dicke:"></TextBlock>
+                        </Label>
+                        <Label Grid.Row="2" Grid.Column="1">
+                            <TextBox Name="txtBox_Dicke" Width="100"></TextBox>
+                        </Label>
+                        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_SchmaleSeite" Visibility="Hidden" HorizontalAlignment="Right">Durchmesser schmale Seite</TextBlock>
+                        </Label>
+                        <Label Grid.Row="3" Grid.Column="1">
+                            <TextBox Name="txtBox_Schmaleseite" Width="100" Visibility="Hidden"></TextBox>
+                        </Label>
+                        <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_BreiteSeite"  Visibility="Hidden" HorizontalAlignment="Right">Durchmesser breite Seite</TextBlock>
+                        </Label>
+                        <Label Grid.Row="4" Grid.Column="1">
+                            <TextBox Name="txtBox_Breiteseite" Width="100" Visibility="Hidden"></TextBox>
+                        </Label>
+                        <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_Kopfspiel"  Visibility="Hidden" HorizontalAlignment="Right">Kopfspiel:</TextBlock>
+                        </Label>
+                        <Label Grid.Row="5" Grid.Column="1">
+                            <TextBox Name="txtBox_Kopfspiel" Width="100" Visibility="Hidden"></TextBox>
+                        </Label>
+                        <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_Zahnflankenwinkel"  Visibility="Hidden" HorizontalAlignment="Right">Zahnflankenwinkel:</TextBlock>
+                        </Label>
+                        <Label Grid.Row="6" Grid.Column="1">
+                            <TextBox Name="txtBox_Zahnflankenwinkel" Width="100" Visibility="Hidden"></TextBox>
+                        </Label>
+                        <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock Name="txtBlock_Verdrehen"  Visibility="Hidden" HorizontalAlignment="Right">Verdrehen um:</TextBlock>
+                        </Label>
+                        <Label Grid.Row="7" Grid.Column="1">
+                            <TextBox Name="txtBox_Verdrehen" Width="100" Visibility="Hidden"></TextBox>
+                        </Label>
+                        <Label Grid.Row="9" Grid.Column="1">
+                            <Button Click="btnAuswahl_Click" >Bestätigen</Button>
+                        </Label>
+                    </Grid>
+
+                    <TextBlock Name="txtBlock_Ergebnis" Margin="10,10" Text=""></TextBlock>
+                </StackPanel>
+
+            </TabItem>
+            <!--
+            Materialauswahl
+            -->
+            <TabItem Header="Material" TextBlock.FontSize="18" Background="{x:Null}" Height="28" VerticalAlignment="Top" >
+                <Grid>
+                    <StackPanel>
+                        <Label Content="Wählen Sie das Material des Zahnrades aus:"/>
+
+                        <RadioButton x:Name="rb_Stahl" IsChecked="True" GroupName="Material" Content="Stahl"/>
+                        <RadioButton x:Name="rb_Messing" GroupName="Material" Content="Messing"/>
+                        <RadioButton x:Name="rb_Plastik" GroupName="Material" Content="Plastik"/>
+                        <Expander>
+                            <Expander.Header>
+                                <TextBlock><Run Text="Information zum Material"/></TextBlock>
+                            </Expander.Header>
+                            <StackPanel>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock><Run Text="Information zu Stahl"/></TextBlock>
+                                    </Expander.Header>
+                                    <StackPanel>
+                                        <TextBlock> Bei besonders hoch beanspruchten Zahnrädern zu wählen. Kosten pro kg...</TextBlock>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock><Run Text="Information zu Messing"/></TextBlock>
+                                    </Expander.Header>
+                                    <StackPanel>
+                                        <TextBlock> Für weniger stark beanspruchte Zahnräder.</TextBlock>
+                                    </StackPanel>
+                                </Expander>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock><Run Text="Information zu Plastik"/></TextBlock>
+                                    </Expander.Header>
+                                    <StackPanel>
+                                        <TextBlock> Für sehr geringe Beanspruchung.</TextBlock>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+
+
+                        </Expander>
+                        <Button Margin="0,20" Click="Button_bes" Content="Bestätige"/>
+                        <Label x:Name="lbl_Material"/>
+                    </StackPanel>
+                </Grid>
+
+            </TabItem>
+            <!--
+            Ergebnis
+            -->
+            <TabItem Height="Auto" Header="Ergebnis" TextBlock.FontSize="18" Background="{x:Null}">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="160" ></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+                        <RowDefinition Height="Auto" ></RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+
+                    <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Padding="25" HorizontalAlignment="Center" Margin="33,0,58,0" Width="241">
+                        <TextBlock FontSize="30" RenderTransformOrigin="-0.083,0.494" >Ergebnis</TextBlock>
+                    </Label>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Padding="10" FontSize="18" Width="Auto" VerticalAlignment="Center" >Modul:</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Padding="10" FontSize="18" Width="Auto" >Teilkreisdurchmessser:</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Padding="10" FontSize="18" Width="Auto" >Zähnezahl:</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Padding="10" FontSize="18" Width="Auto" >Fußkreisdurchmesser:</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Padding="10" FontSize="18" Width="Auto" >Grundkreisdurchmesser:</TextBlock>
+                    <TextBlock Grid.Row="6" Grid.Column="0" Padding="10" FontSize="18" Width="Auto" >Teilung:</TextBlock>
+                    <TextBlock Grid.Row="7" Grid.Column="0" Padding="10" FontSize="18" Width="Auto" >Dicke:</TextBlock>
+
+
+
+
+
+                    <TextBlock x:Name="txtblock_Ausgabe_modul" Grid.Row="1" Grid.Column="1" Padding="10" FontSize="18" Width="Auto" >ergebnis_modul</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_teilkreis" Grid.Row="2" Grid.Column="1" Padding="10" FontSize="18" Width="Auto" >ergebnis_teilkreis</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_zähnezahl" Grid.Row="3" Grid.Column="1" Padding="10" FontSize="18" Width="Auto" >ergebnis_zähnezahl</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_fußkreisdurchmesser" Grid.Row="4" Grid.Column="1" Padding="10" FontSize="18" Width="Auto" >ergebnis_fußkreisdurchmesser</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_grundkreisdurchmesser" Grid.Row="5" Grid.Column="1" Padding="10" FontSize="18" Width="Auto" >ergebnis_grundkreisdurchmesser</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_teilung" Grid.Row="6" Grid.Column="1" Padding="10" FontSize="18" Width="Auto" >ergebnis_teilung</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_dicke" Grid.Row="7" Grid.Column="1" Padding="10" FontSize="18" Width="Auto" >ergebnis_dicke</TextBlock>
+
+                    <TextBlock Grid.Row="1" Grid.Column="2" Padding="10" FontSize="18" Width="Auto" >Zahnhöhe:</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Padding="10" FontSize="18" Width="Auto" >Zahnkopfhöhe:</TextBlock>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Padding="10" FontSize="18" Width="Auto" >Zahnfußhöhe:</TextBlock>
+                    <TextBlock Grid.Row="4" Grid.Column="2" Padding="10" FontSize="18" Width="Auto" >Kopfspiel:</TextBlock>
+                    <TextBlock Grid.Row="5" Grid.Column="2" Padding="10" FontSize="18" Width="Auto" >Zahnflankenwinkel:</TextBlock>
+                    <TextBlock Grid.Row="6" Grid.Column="2" Padding="10" FontSize="18" Width="Auto" >Material:</TextBlock>
+
+                    <TextBlock x:Name="txtblock_Ausgabe_zahnhöhe" Grid.Row="1" Grid.Column="3"  Padding="10" FontSize="18" Width="Auto" >ergebnis_zahnhöhe</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_zahnkopfhöhe" Grid.Row="2" Grid.Column="3" Padding="10" FontSize="18" Width="Auto" >ergebnis_zahnkopfhöhe</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_zahnfußhöhe" Grid.Row="3" Grid.Column="3" Padding="10" FontSize="18" Width="Auto" >ergebnis_zahnfußhöhe</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_kopfspiel" Grid.Row="4" Grid.Column="3" Padding="10" FontSize="18" Width="Auto" >ergebnis_kopfspiel</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_zahnflankenwinkel" Grid.Row="5" Grid.Column="3"  Padding="10" FontSize="18" Width="Auto" >ergebnis_Zahnflankenenwinkel</TextBlock>
+                    <TextBlock x:Name="txtblock_Ausgabe_material" Grid.Row="6" Grid.Column="3" Padding="10" FontSize="18" Width="Auto" >ergebnis_material</TextBlock>
+
+
+                </Grid>
+
             </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
+
